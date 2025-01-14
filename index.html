@@ -1,125 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
+<head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-   Title
-  </title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
- </head>
- <body>
-<header class="header">
-       <!-- <a href="index.html">
-        Home
-       </a>
-       <a href="content/6.html">
-        6
-       </a>
-       <a href="content/7.html">
-        7
-       </a>
-       <a href="content/2.html">
-        2
-       </a> -->
+  <title>Wedding Invitation</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f9f7f6;
+    }
 
-       <nav class="navbar">
-        <div class="container">
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-    </header>
+    .ticket {
+      width: 800px;
+      height: 350px;
+      border: 2px solid #d4af37;
+      border-radius: 10px;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Hello, It's Jinny</h1>
-            <p class="hero-subtitle">I'm a <span id="typed-output"></span></p>
-            <a href="#projects" class="btn">View My Work <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true">
-                <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path>
-            </svg></a>
-        </div>
-    </section>
+    .left-section {
+      flex: 1.5;
+      padding: 20px;
+      border-right: 2px dashed #d4af37;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-    <section id="about" class="section about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>I’m a passionate developer with experience in building web applications using modern technologies like Java, Angular, and more.</p>
-        </div>
-    </section>
+    .right-section {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-    <section id="projects" class="section projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="project-list">
-                <div class="project" data-aos="fade-up">
-                    <h3>CRM Application</h3>
-                    <a href="https://github.com/paiti94/nova-client-frontend" target="_blank"><img src="content/crm.png" alt="Project 1"></a>
-                    <p>Designed for an accounting tax firm to manage their clients and tasks.</p>
-                    <ul class="mt-2 flex flex-wrap gap-2">
-                        <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full bg-teal-400 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Java</div></li>
-                        <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full bg-teal-400 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Spring Boot</div></li>
-                        <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full bg-teal-400 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Angular</div></li>
-                        <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full bg-teal-400 px-3 py-1 text-xs font-medium leading-5 text-teal-300">MySQL</div></li>
-                    </ul>
-                </div>
-                <div class="project" data-aos="fade-up">
-                    <h3>Soccer Related Database App</h3>
-                    <a href="https://github.com/paiti94/UserSoccerGUI" target="_blank"><img src="content/soccer.png" alt="Project 2"></a>
-                    <p>Quick and easy accessible to Soccer related news and statistics with a simple user interface. It offers a simple playful game that can be played with friends.</p>
-                    <ul class="mt-2 flex flex-wrap gap-2">
-                        <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full bg-teal-400 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Java</div></li>
-                        <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full bg-teal-400 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Spring Boot</div></li>
-                        <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full bg-teal-400 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Angular</div></li>
-                        <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full bg-teal-400 px-3 py-1 text-xs font-medium leading-5 text-teal-300">Express.js</div></li>
-                        <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full bg-teal-400 px-3 py-1 text-xs font-medium leading-5 text-teal-300">MySQL</div></li>
-                    </ul>
-                </div>
-                <div class="project" data-aos="fade-up">
-                    <h3>Accounting firm Website</h3>
-                    <a href="https://www.novatax.ca/" target="_blank"><img src="content/nova.png" alt="Project 3"></a>
-                    <p>Designed for an accounting tax firm for their user to navigate their information</p>
-                    <ul class="mt-2 flex flex-wrap gap-2">
-                        <li class="mr-1.5 mt-2"><div class="flex items-center rounded-full bg-teal-400 px-3 py-1 text-xs font-medium leading-5 text-teal-300">WIX</div></li>
-                    </ul>
-                </div>
-                <!-- <div class="project" data-aos="fade-up">
-                    <h3>Ecommerce Application</h3>
-                    <p>TBD</p>
-                </div> -->
-            </div>
-        </div>
-    </section>
+    h1 {
+      font-size: 2rem;
+      color: #d4af37;
+      font-family: 'Georgia', serif;
+    }
 
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2>Contact</h2>
-            <p>If you'd like to get in touch, please email me at: <a href="mailto:paiti94@gmail.com">paiti94@gmail.com</a></p>
-        </div>
-    </section>
+    .details {
+      font-size: 1rem;
+      color: #333;
+    }
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Jinny Kim. All Rights Reserved.</p>
-            <div class="social-links">
-                <a href="https://github.com/paiti94" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/jeeeunjinnykim" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-    </footer>
+    .seat {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #333;
+      border: 2px solid #d4af37;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+    }
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-       <script src="script.js"></script>
- </body>
+    .icon {
+      font-size: 2rem;
+      color: #d4af37;
+    }
+
+    .map {
+      opacity: 0.2;
+      position: absolute;
+      top: 20%;
+      left: 10%;
+      width: 70%;
+      height: auto;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <div class="ticket">
+    <div class="left-section">
+      <h1>Save the Date</h1>
+      <div class="details">
+        <p>For the wedding of</p>
+        <p><strong>Jinny Kim & [Fiancé's Name]</strong></p>
+        <p><strong>Date:</strong> [Insert Date]</p>
+        <p><strong>Destination:</strong> Punta Cana</p>
+        <p><strong>Country:</strong> Dominican Republic</p>
+      </div>
+    </div>
+    <div class="right-section">
+      <div class="icon">✈️</div>
+      <div class="seat">
+        <p>Seat</p>
+        <p><strong>S23</strong></p>
+      </div>
+      <p>Invitation to follow</p>
+    </div>
+  </div>
+</body>
 </html>
