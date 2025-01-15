@@ -6,20 +6,27 @@
   <title>Wedding Invitation</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    html {
+        scroll-behavior: smooth;
+    }
     body {
       font-family: 'Great Vibes';
       display: flex;
-      justify-content: center;
+      flex-direction: column; 
       align-items: center;
-      height: 100vh;
       margin: 0;
       background-color: #e5eff4;
+      padding: 10px;
     }
 
     .ticket {
-      width: 800px;
-      height: 350px;
+      width: 90%; 
+      max-width: 800px;
+      /* height: 350px; */
+      height: auto;
       border: 2px solid #5da4cd;
+      margin-bottom: 30vh;
+      margin-top: 30vh;
       border-radius: 10px;
       background-color: #ffffff;
       background: url('assets/images/blue1.png') no-repeat center center;
@@ -27,11 +34,25 @@
       display: flex;
       overflow: hidden;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+      transform: translateY(20px); 
+      animation: pop 0.8s ease forwards;
+    }
+
+    @keyframes pop {
+      0% {
+        opacity: 0; /* Start invisible */
+        transform: translateY(20px) scale(0.95); /* Start slightly below and scaled down */
+      }
+      100% {
+        opacity: 1; /* End fully visible */
+        transform: translateY(0) scale(1); /* End at normal position and scale */
+      }
     }
 
     .left-section {
       flex: 1.5;
-      padding: 20px;
+      padding: 5%;
       border-right: 2px dashed #5da4cd;
       display: flex;
       flex-direction: column;
@@ -42,7 +63,7 @@
 
     .right-section {
       flex: 1;
-      padding: 20px;
+      padding: 5%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -50,7 +71,7 @@
       color: #333;
     }
 
-    h1 {
+    .left-section h1 {
       font-size: 2.5rem;
       color: #353b3e;
       font-family: 'Dancing Script', cursive;
@@ -62,37 +83,42 @@
 
     .details {
       font-size: 1.1rem;
-      color: #333;
+      color: #353b3e;
       text-align: right;
       padding-top: 10vh;
       padding-right: 1vw;
-      .and{
+      .and {
         font-family:  'Dancing Script', cursive;
         font-size: 3rem;
-        padding-right: 30px;
+        padding-right: 5%;
         letter-spacing: 1px;
-        /* 'Qwigley', cursive; */
       }
-      .name{
-        font-size: 30px;
+      .name {
+        font-size: 1.8rem;
       }
     }
 
     .details p {
       margin: 5px 0;
     }
-    
 
     .seat {
-      font-size: 1.2rem;
-      font-weight: bold;
+        font-size: 1rem;
       font-family: 'Great Vibes';
-      color: #333;
+      color: #353b3e;
       border: 2px solid #5da4cd;
       padding: 10px;
       border-radius: 5px;
-      width: 4vw;
       text-align: center;
+      width: 50px;
+      height: 50px;
+      p{
+        margin: 0px;
+      }
+    }
+
+    .seatnum{
+        font-size: 2rem;
     }
 
     .icon {
@@ -109,6 +135,72 @@
       height: auto;
       z-index: -1;
     }
+
+    a.details-link{
+        color: #5da4cd;
+        text-decoration: none;
+    }
+
+    a.details-link:hover{
+        color: #5da4cd;
+        text-decoration: underline;
+    }
+    .details-section {
+      /* width: 800px;  */
+      width: 90%;
+      max-width: 800px;
+      padding: 20px;
+      background-color: #e5eff4; 
+      border-top: 2px solid #5da4cd;
+      text-align: center; 
+      font-family: 'addingtoncf-thin', georgia, serif;
+      font-size: 1.1rem;
+      margin-top: 50vh;
+      margin-bottom: 50vh;
+      color: #353b3e;
+      letter-spacing: 1px;
+    }
+
+    .details-section  h1 {
+      font-size: 2.5rem;
+      color: #353b3e;
+      font-family: 'Dancing Script', cursive;
+      margin-top: 10vh;
+      margin-bottom: 7vh;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem; 
+      }
+
+      .details {
+        font-size: 1rem; 
+      }
+
+      .seat {
+        font-size: 1rem; 
+        margin-bottom: 10px;
+      }
+
+      .seat p{
+        margin-top: 0px;
+      }
+
+      .seatnum{
+        font-size: 2rem;
+      }
+
+      .ticket {
+        flex-direction: column; 
+        margin-top: 20vh;
+      }
+
+      .left-section, .right-section {
+        border-right: none;
+        border-bottom: 2px dashed #5da4cd; 
+      }
+    }
   </style>
 </head>
 <body>
@@ -120,26 +212,44 @@
         <p class="name">JINNY KIM</p>
         <p class="and">and</p>
         <p class="name">ALI BOUHAMYA</p>
-        <!-- <p><strong>Date:</strong> May 12, 2025</p>
-        <p><strong>Destination:</strong> Dreams Jade Resorts & Spa Cancun</p>
-        <p><strong>Country:</strong> Mexico</p> -->
         <p> May 12, 2025</p>
         <p> Dreams Jade Resorts & Spa</p>
         <p> Cancun, Mexico</p>
       </div>
     </div>
     <div class="right-section">
- 
       <div class="icon">       
-      
       </div>
       <div class="seat">
         <p>Seat</p>
-        <p><strong>1A</strong></p>
+        <p class="seatnum">1A</p>
       </div>
-      <p>Invitation Details</p>
+      <a href="#invitation-details" class="details-link">Invitation Details</a>
     </div>
   </div>
 
+  <section id="invitation-details" class="details-section">
+    <h1>Invitation Details</h1>
+    <br>
+    <p> Welcome to join our exclusive member only club to celebrate Jinny and Ali's big day. We are thrilled to have you on board with this trip.</p>
+    <p>This ticket will take you to Dreams Jade Resorts & Spa in Cancun, Mexico. </p>
+    <p> The ceremony will take place on May 12, 2025 @ 4pm, then Cocktail hours to Reception Dinner.
+         We can't wait to celebrate this special day with you!</p>
+    <br>
+    <p>
+        Please see below links for our suggestions: 
+        <br>
+        For booking Package,
+        <br>
+        For Airport Transfer,
+        <br>
+        For Resort Info,
+        <br>
+        For Excursion Options,
+        <br>
+    </p>
+    <br>
+    <p>For more information, please contact us at: <a href="mailto:paiti94@paiti94.com">paiti94@paiti94.com </a> |  <a href="mailto:ali.bouhamya@gmail.com">ali.bouhamya@gmail.com</a></p>
+  </section>
 </body>
 </html>
