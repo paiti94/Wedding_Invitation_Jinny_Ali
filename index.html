@@ -81,13 +81,20 @@
         margin-top: 7vh;
         margin-bottom: 7vh;
     }
-
+    @media (max-width: 600px) {
+        .details-section{
+            margin-top: 72%;
+        }
+    }
   </style>
 </head>
 <body>
 
   <div class="ticket">
-   <img src="./assets/images/ticket.png">
+   <picture>
+      <source media="(max-width: 600px)" srcset="./assets/images/ticket_small.png">
+      <img src="./assets/images/ticket.png" alt="Ticket Image">
+    </picture>
   </div>
   <a href="#invitation-details">추가 정보</a>
 
