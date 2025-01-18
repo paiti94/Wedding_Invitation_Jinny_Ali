@@ -33,22 +33,6 @@ html {
   margin: 5px 0;
 }
 
-a.details-link{
-    color: #5da4cd;
-    text-decoration: none;
-}
-
-a.details-link:hover{
-    color: #5da4cd;
-    text-decoration: underline;
-}
-
-
-hr{
-    border: 0.7px solid #5da4cd;
-    width: 80%;
-    background-color: #5da4cd;
-}
 
 @keyframes fadeIn {
   0% {
@@ -60,56 +44,5 @@ hr{
     transform: translateY(0);
   }
 }
-.details-section  h1 {
-  font-size: 2.5rem;
-  color: #353b3e;
-  font-family: 'Dancing Script', cursive;
-  margin-top: 7vh;
-  margin-bottom: 7vh;
-}
 
-.details-section h2 {
-    color: #353b3e;
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.4rem;
-    margin-top: 7vh;
-    margin-bottom: 7vh;
-}
 
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem; 
-  }
-
-  .details {
-    font-size: 1rem; 
-  }
-
-  .seat {
-    font-size: 1rem; 
-    margin-bottom: 10px;
-  }
-
-  .seat p{
-    margin-top: 0px;
-  }
-
-  .seatnum{
-    font-size: 2rem;
-  }
-
-  .ticket {
-    flex-direction: column; 
-    margin-top: 20vh;
-  }
-
-  .left-section {
-    border-right: none;
-    border-bottom: 2px dashed #5da4cd; 
-  }
-
-  .right-section{
-    border-right: none;
-    border-bottom: none; 
-  }
-}
