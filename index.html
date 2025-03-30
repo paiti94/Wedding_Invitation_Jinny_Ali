@@ -14,29 +14,33 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-  <style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e67b948d83aab7cad2784c962c95ddf9"></script>
+   <style>
     /* Add this CSS to make the image responsive */
     .ticket img {
       width: 100%; /* Make the image take the full width of its container */
       height: auto; /* Maintain the aspect ratio */
       display: block; /* Remove any extra space below the image */
     }
+
+    .ticket a{
+      padding: 20px;
+      text-align: center;
+    }
+
     .ticket {
     width: 90%;
     max-width: 800px;
-    /* height: 350px; */
+    padding: 20px;
     height: auto;
-    /* border: 2px solid #5da4cd; */
     margin-bottom: 30vh;
     margin-top: 30vh;
-    border-radius: 10px;
-    /* background-color: #ffffff;
-    background: url(assets/images/blue1.png) no-repeat center center; */
     background-size: cover;
-    display: flex
-;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; 
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
     transform: translateY(20px);
     animation: pop 0.8s ease forwards;
@@ -48,7 +52,7 @@
         flex-direction: column; 
         align-items: center;
         margin: 0;
-        background-color: #1b1b1b;
+        background-color: black;
         padding: 10px;
         letter-spacing: 1px;
         color: white;
@@ -57,12 +61,13 @@
 
     a{
          color: #dcb189;
-         text-decoration: underline;
+         text-decoration: none;
          font-family: 'Noto Sans KR';
+         font-weight: 700;
     }
 
     a:hover{
-        text-decoration: none;
+        text-decoration: underline;
     }
 
 
@@ -77,9 +82,11 @@
          width: 90%;
          max-width: 800px;
          padding: 20px;
-         background-color: #1b1b1b; 
+         /* background-color: #1b1b1b;  */
+         background-color: black; 
          text-align: center; 
-         font-family: 'addingtoncf-thin', georgia, serif;
+         /* font-family: 'addingtoncf-thin', georgia, serif; */
+         font-family: 'Great Vibes','Noto Sans KR';
          font-size: 1rem;
          margin-top: 45%;
          margin-bottom: 10%;
@@ -92,18 +99,18 @@
     }
     
     .details-section  h1 {
-      font-size: 2.5rem;
       color: #dcb189;
-      font-family: 'Dancing Script', cursive;
-      margin-top: 7vh;
-      margin-bottom: 7vh;
+      font-size: 1.5rem;
+      font-family: 'Noto Sans KR';
+      /* margin-top: 7vh;
+      margin-bottom: 7vh; */
     }
 
     .details-section h2 {
         color: #dcb189;
-        font-family: 'Dancing Script', cursive;
-        font-size: 1.4rem;
-        margin-top: 7vh;
+        font-size: 1.5rem;
+        font-family: 'Noto Sans KR';
+        margin-top: 10vh;
         margin-bottom: 7vh;
     }
     @media (max-width: 600px) {
@@ -136,56 +143,320 @@
 
     .section-animate.animate {
     animation: fadeInUp 2s forwards; /* Animation */
-}
+  }
  
+  #wedding-date {
+      font-size: 2rem;
+      color: #ffcc00;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      font-family: 'Great Vibes','Noto Sans KR';
+      padding: 20px;
+      margin-bottom: 30vh;
+      margin-top: 30vh;
+}
+  #month{
+    opacity: 0; /* Start hidden for animation */
+    transition: opacity 1s ease-in-out;
+  }
+  #day{
+    opacity: 0; /* Start hidden for animation */
+    transition: opacity 1s ease-in-out;
+  }
+  #year{
+    opacity: 0; /* Start hidden for animation */
+    transition: opacity 1s ease-in-out;
+  }
+  .main{
+    display: none;
+  }
+
+  .button-container{
+    padding-top: 10px;
+  }
+
+  .button-container button{
+    width: 32.3%;
+    background-color: #1b1b1b;
+    border-radius: 8px;
+    border: 1px solid #1b1b1b;
+    color: #dcb189 !important;
+  }
+
+  .button-container button a{
+    color: #dcb189;
+    font-weight: 500;
+  }
+
+  .button-container button:hover{
+    background-color: #c28d5c;
+  }
+
+  video{
+    width: 100%;
+  }
+
+  .music-controls {
+    position: absolute; 
+    top: 10px;
+    left: 10px; 
+    z-index: 1000; 
+    background-color: rgba(0, 0, 0, 0.7); 
+    padding: 10px; 
+    border-radius: 5px; 
+    display: none;
+   }
+
+  .play-container{
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+}
+.play-container .fas{
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  color: #dcb189;
+}
+.play-container:active{
+  box-shadow: inset 10px 10px 10px rgba(0,0,0,0.1),
+    inset -10px -10px 10px rgba(255,255,255,0.6);
+}
+.play-container:active .fas{
+  color:#a59d81;
+}
+
+.music-controls button{
+  background-color: black;
+  border-radius: 8px;
+  border: 1px solid black;
+  color: #dcb189 !important;
+}
+
+.music-controls button a{
+  color: #493c30;
+  font-weight: 500;
+}
+
+.send-money button{
+  background-color: black;
+  border: 0px;
+}
+
+.send-money button:hover{
+  background-color: #554435;
+  border: 0px;
+  border-radius: 8px;
+}
   </style>
 </head>
 <body>
+  <div id="wedding-date">
+    <span id="month">5.</span> 
+    <span id="day">31.</span> 
+    <span id="year"> 2025</span> 
+  </div> 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+            const monthEl = document.getElementById('month');
+            const dayEl = document.getElementById('day');
+            const yearEl = document.getElementById('year');
+            const weddingDateEl = document.getElementById('wedding-date');
+            const musicControls = document.querySelector('.music-controls');
+            const mainContentEl = document.querySelector('.main'); // Select the main content
 
-  <div class="ticket">
-   <picture>
-      <source media="(max-width: 600px)" srcset="./assets/images/ticket_small.png">
-      <img src="./assets/images/ticket.png" alt="Ticket Image">
-    </picture>
+            setTimeout(() => {
+              monthEl.style.opacity = 1;
+            }, 1000)
+
+            setTimeout(() => {
+              dayEl.style.opacity = 1;
+            }, 2000)
+
+            setTimeout(() => {
+              yearEl.style.opacity = 1;
+            }, 3000)
+
+            
+            setTimeout(() => {
+                weddingDateEl.style.opacity = 1; 
+            }, 1000);
+
+            // Set a timeout to hide the date and show the main content
+            setTimeout(() => {
+                weddingDateEl.style.opacity = 0; // Fade out the date
+                setTimeout(() => {
+                    monthEl.style.display = 'none';
+                    dayEl.style.display = 'none';
+                    yearEl.style.display = 'none';
+                    weddingDateEl.style.display = 'none'; // Hide the date element
+                    mainContentEl.style.display = 'block';
+                    musicControls.style.display = 'block'; // Show the main content
+                }, 1000); // Wait for the fade-out animation to complete
+            }, 4000); // Show the date for 3 seconds
+        });
+    </script>
+     <audio id="background-music" loop autoplay>
+      <source src="./assets/music/untilIFoundYou.mp3" type="audio/mpeg">
+      Your browser does not support the audio tag.
+  </audio>
+  <div class="music-controls">
+    <button onclick="playMusic()">    
+      <div class="play-container">
+        <i class="fas fa-play"></i>
+      </div> 
+    </button>
+    <button onclick="pauseMusic()">
+      <div class="play-container">
+        <i class="fas fa-pause"></i>
+      </div>  
+    </button>
   </div>
-  <a href="#invitation-details">Details</a>
+  <script>
+    const music = document.getElementById('background-music');
 
-  <section id="invitation-details" class="details-section">
-    <hr />
-    <div class="section-animate">
-    <h1>Invitation Details</h1>
-    <p > VVIP 손님, 환영합니다.</p>
-    <p> 태어난 곳, 자라온 곳도 너무나 다른 두 동갑내기 친구 둘이 서로의 아름다운 인연이 되어 서로 하나의 가족이 되었습니다.</p>
-    <p> 한국에서 거리가 멀어 함께 하시지 못한 가족, 친구분들을 위하여 저희가 이번에 특별한 자리를 마련해보았습니다. </p>
-    <p> 저희의 이 특별한 순간에 함께해주심을 감사드리며 서로에게 하나의 소중한 추억이 되는 그런 시간을 보내다 가시길 바랍니다. </p>
-    <p> 혹시나 참석이 어려우시더라도 부담갖지 마시고 멀리서나마 축하해 주시는 마음 감사히 받겠습니다. </p>
-    <p> 참석이 가능하신 분께서는 참석여부를 초대장을 받은 담당자에게 알려주시면 감사하겠습니다.</p>
-    
-    <p style="padding: 10% 0px 15% 0px;">더 자세한 정보는 밑 <a href="#detail">더보기</a> 란을 확인 부탁드립니다. </p>
-    <hr />
-    </div>
-    <section id="detail">
-      <div class="section-animate">
-            <p style="margin-top: 7vh;"> 일시: 5월 31일, 2025 오후 6시 </p>
-            <p> 주소 : "일떼라쪼", 서울특별시 영등포구 양평로 8 3층</p>
-            <p style="padding: 5% 0px 10% 0px;"> We can't wait to celebrate this special day with you!</p>
+    function playMusic() {
+        music.play().catch(error => {
+            console.error("Error playing music:", error);
+        });
+    }
 
-            <hr />
-            <div class="section-animate">
-              <p><h2> 마음 전하실 곳, </h2></p>
-              <p style="padding-bottom: 10%;"> 김승환 하나은행 349-910123-94307</p>
-              <p style="padding-bottom: 10%;"> 김정희 카카오뱅크 3333-02-9074467</p>
-            </div>
+    function pauseMusic() {
+      if (!music.paused) { // Check if music is currently playing
+            music.pause();
+            music.currentTime = 0; 
+            console.log("Music paused");
+        } else {
+            console.log("Music is already paused");
+        }
+    }
+    window.addEventListener('load', function() {
+        playMusic(); // Attempt to play music on page load
+    });
+
+    document.addEventListener('click', () => {
+      if (music.paused) {
+        playMusic();
+      }
+    }, { once: true }); // Runs only once on first click
+
+     window.addEventListener('load', () => {
+       console.log("Waiting for user interaction to play music...");
+     });
+  </script>
+    <div class="main">
+      <div class="ticket">
+       <picture>
+          <source media="(max-width: 600px)" srcset="./assets/images/ticket_small.png">
+          <img src="./assets/images/ticket.png" alt="Ticket Image">
+        </picture>
+        <div class="detail" style="margin-top: 10px;">
+          <a href="#invitation-details">Details</a>
+        </div>
       </div>
-     </section>
-    <hr />
-    <div class="section-animate">
-    <p style="margin-top:7vh" class="section-animate">신부, 김지은 & 신랑, 알리 부함야 올림</p>
-        <p>Jinny Kim </p>
-        <p>&</p> 
-        <p>Ali Bouhamya</p>
-    </div>
-  </section>
+
+    
+      <section id="invitation-details" class="details-section">
+        <hr />
+        <div class="section-animate">
+        <h1 style="margin-bottom: 5px;margin-top: 10vh;"> 2025년 5월 31일 </h1>
+        <h1 style="margin-top: 0vh;margin-bottom: 4vh;font-size: 1rem;"> 토요일, 6:00 PM</h1>
+        <div class="vid-container">
+          <video src="./assets/videos/invitation-vid.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <p style="margin-top: 4vh;"> VVIP 손님, 환영합니다.</p>
+        <p> 태어난 곳, 자라온 곳도 너무나 다른 두 동갑내기 친구 둘이 서로의 아름다운 인연이 되어 서로 하나의 가족이 되었습니다.</p>
+        <p> 한국에서 거리가 멀어 함께 하시지 못한 가족, 친구분들을 위하여 저희가 이번에 특별한 자리를 마련해보았습니다. </p>
+        <p> 저희의 이 특별한 순간에 함께해주심을 감사드리며 서로에게 하나의 소중한 추억이 되는 그런 시간을 보내다 가시길 바랍니다. </p>
+        <p> 혹시나 참석이 어려우시더라도 부담갖지 마시고 멀리서나마 축하해 주시는 마음 감사히 받겠습니다. </p>
+        <p> 참석이 가능하신 분께서는 참석여부를 초대장을 받은 담당자에게 알려주시면 감사하겠습니다.</p>
+        
+        <p style="padding: 10% 0px 10vh 0px;">더 자세한 정보는 밑 <a href="#detail">더보기</a> 란을 확인 부탁드립니다. </p>
+        <hr />
+        </div>
+        <section id="detail">
+          <div class="section-animate">
+                <p style="margin-top: 10vh;"> 일시: 5월 31일, 2025 오후 6시 </p>
+                <p> 주소 : "일떼라쪼", 서울특별시 영등포구 양평로 8 3층</p>
+                <div id="map" style="width:100%;height:350px;margin-top: 5vh;"></div>
+                <div class="button-container">
+                  <a href="https://map.kakao.com/link/to/일떼라쪼,37.5324716,126.905169" target="_blank"><button class="map-button">티맵</button></a>
+                  <a href="https://map.naver.com/p/entry/place/1692045788?c=15.00,0,0,0,dh" target="_blank"><button class="map-button">네이버 지도</button></a>
+                  <a href="https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=,,479052.000000002,1120304.0000000002&rt1=&rt2=%EC%9D%BC%EB%96%BC%EB%9D%BC%EC%AA%BC&rtIds=,639616752" target="_blank"><button class="map-button">카카오 지도</button></a>
+              </div>
+                <script>
+                  document.addEventListener('DOMContentLoaded', function() {
+                      if (typeof kakao !== 'undefined') {
+                          var container = document.getElementById('map'); 
+                          var options = { 
+                              center: new kakao.maps.LatLng(37.5324716, 126.905169), 
+                              level: 3 
+                          };
+          
+                          var map = new kakao.maps.Map(container, options); 
+                      } else {
+                          console.error("Kakao Maps API is not loaded.");
+                      }
+                  });
+              </script>
+                <p style="padding: 5% 0px 10vh 0px;"> We can't wait to celebrate this special day with you!</p>
+                <hr />
+                <div class="section-animate send-money">
+                  <p><h2> 마음 전하는 곳 </h2></p>
+                  <p style="padding-bottom: 3vh;"> 김승환 하나은행 349-910123-94307
+                    <button onclick="copyToClipboard('349-910123-94307')"><i class="fa fa-copy" style="color: #dcb189;"></i></button>
+                  </p>
+                  <p style="padding-bottom: 10vh;"> 김정희 카카오뱅크 3333-02-9074467
+                    <button onclick="copyToClipboard('3333-02-9074467')"><i class="fa fa-copy" style="color: #dcb189;"></i></button>
+                  </p>
+                </div>
+                <script>
+                  function copyToClipboard(text) {
+                      const textarea = document.createElement('textarea');
+                      textarea.value = text; 
+                      document.body.appendChild(textarea);
+                      textarea.select(); 
+                      document.execCommand('copy');
+                      document.body.removeChild(textarea); 
+                  }
+              </script>
+          </div>
+          <hr />
+          <div class="section-animate parking-info">
+            <p><h2> 추가 정보  </h2></p>
+            <p> 당산역 8번 출구와 건물 사이 건물 후면에 기계식 주차장이 마련되어 있습니다.</p>
+            <p> 주차는 하객 3시간 무료 주차입니다. </p>
+            <p> 주차장을 이용하신 분들은 주차 후 주차장 옆 입구를 통해 계단을 이용하시면 바로 오실 수 있습니다. </p>
+            <p style="margin-bottom: 10vh;"> 건물 1층으로 정문 (브런치빈과 공동 사용) 을 이용하실 경우 엘레베이터로 3층으로 오시면 됩니다. </p>
+          </div>
+         </section>
+        <hr />
+        <div class="section-animate">
+        <p style="margin-top:10vh" class="section-animate">신부, 김지은 & 신랑, 알리 부함야 올림</p>
+            <p>Jinny Kim </p>
+            <p>&</p> 
+            <p>Ali Bouhamya</p>
+        </div>
+      </section>
+  </div>  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll('.section-animate');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate'); 
+                observer.unobserve(entry.target); 
+            }
+        });
+    });
+
+    sections.forEach(section => {
+        observer.observe(section); 
+    });
+  });
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
