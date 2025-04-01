@@ -124,6 +124,9 @@
             flex-direction: column; 
             margin-top: 15vh;
         }
+        .timeline img{
+          width: 90%;
+        }
     }
     @keyframes fadeInUp {
     from {
@@ -376,6 +379,12 @@
         </div>
         <section id="detail">
           <div class="section-animate">
+            <div class="timeline">
+              <picture>
+                <source media="(max-width: 600px)" srcset="./assets/images/timeline.jpg">
+                <img src="./assets/images/timeline.jpg" alt="Timeline Image">
+              </picture>
+            </div>
                 <p style="margin-top: 10vh;"> 일시: 5월 31일, 2025 오후 6시 </p>
                 <p> 주소 : "일떼라쪼", 서울특별시 영등포구 양평로 8 3층</p>
                 <div id="map" style="width:100%;height:350px;margin-top: 5vh;"></div>
